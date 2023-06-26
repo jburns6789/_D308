@@ -43,8 +43,8 @@ public class MyReceiver extends BroadcastReceiver {
 
 
     private void createNotificationChannel(Context context, String CHANNEL_ID ){
-        CharSequence name = context.getResources().getString(R.string.channel_name);
-        String description = context.getString(R.string.channel_description);
+        CharSequence name = "vacationChannel";
+        String description = "vacationAlerts";
         int importance = NotificationManager.IMPORTANCE_DEFAULT;
 
         NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
