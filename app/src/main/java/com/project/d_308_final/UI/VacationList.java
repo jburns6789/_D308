@@ -25,7 +25,7 @@ public class VacationList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vacation_list);
+        setContentView(R.layout.activity_vacation_list_item);
 
         RecyclerView recyclerView = findViewById(R.id.vacation_recycler_view);
         final VacationAdapter vacationAdapter = new VacationAdapter(this);
