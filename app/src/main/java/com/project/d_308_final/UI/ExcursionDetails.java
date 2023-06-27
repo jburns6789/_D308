@@ -172,6 +172,11 @@ public class ExcursionDetails extends AppCompatActivity {
 
         int id = item.getItemId();
 
+        if(id == android.R.id.home){
+            this.finish();
+            return true;
+        } //overriding the back button goes stright to onresume
+
         if (id == R.id.excursion_save) {
 
             date = excursionDateText.getText().toString();
