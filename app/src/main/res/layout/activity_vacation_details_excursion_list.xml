@@ -59,7 +59,7 @@
 
         <EditText
             android:id="@+id/startDate"
-            android:inputType="none"
+            android:inputType="date"
             android:layout_width="240dp"
             android:layout_height="64dp"
             android:hint="Start Date"/>
@@ -72,7 +72,7 @@
 
         <EditText
             android:id="@+id/endDate"
-            android:inputType="none"
+            android:inputType="date"
             android:layout_width="240dp"
             android:layout_height="59dp"
             android:hint="End Date"/>

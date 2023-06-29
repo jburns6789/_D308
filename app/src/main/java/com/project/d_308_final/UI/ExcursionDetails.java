@@ -175,7 +175,7 @@ public class ExcursionDetails extends AppCompatActivity {
         if(id == android.R.id.home){
             this.finish();
             return true;
-        } //overriding the back button goes stright to onresume
+        } //overriding the back button goes straight to onResume
 
         if (id == R.id.excursion_save) {
 
@@ -183,7 +183,7 @@ public class ExcursionDetails extends AppCompatActivity {
             //vacStartDate = currentVac.getVacationStartDate();
             //vacEndDate = currentVac.getVacationEndDate();
 
-            if (dateCheckExcursion()) {
+            if (dateCheckExcursion() && dateValidation(date)) {
 
                 if (excursionId == -1) {
 
@@ -292,6 +292,29 @@ public class ExcursionDetails extends AppCompatActivity {
         }else{
             return true;
         }
+    }
+
+    public boolean dateValidation(String date){
+
+        if(date.trim().equals("")){
+            return true;
+        }else{
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+            sdf.setLenient(false);
+            try{
+                Date validDate = sdf.parse(date);
+                //date is valid
+
+            }catch (ParseException e){
+                e.printStackTrace();
+                Toast.makeText(ExcursionDetails.this, "Please enter a valid date.", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            return true;
+
+        }
+
     }
 /*
     private void updateAlert() {

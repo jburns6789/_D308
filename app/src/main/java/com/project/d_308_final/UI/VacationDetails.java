@@ -294,6 +294,52 @@ public class VacationDetails extends AppCompatActivity {
         }
     }
 
+    public boolean dateValidationStart(String start_date){
+
+        if(start_date.trim().equals("")){
+            return true;
+        }else{
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+            sdf.setLenient(false);
+            try{
+                Date validDate = sdf.parse(start_date);
+                //date is valid
+
+            }catch (ParseException e){
+                e.printStackTrace();
+                Toast.makeText(VacationDetails.this, "Please enter a valid date.", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            return true;
+
+        }
+
+    }
+
+    public boolean dateValidationEnd(String end_date){
+
+        if(end_date.trim().equals("")){
+            return true;
+        }else{
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+            sdf.setLenient(false);
+            try{
+                Date validDate = sdf.parse(end_date);
+                //date is valid
+
+            }catch (ParseException e){
+                e.printStackTrace();
+                Toast.makeText(VacationDetails.this, "Please enter a valid date.", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            return true;
+
+        }
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu (Menu menu){
         getMenuInflater().inflate(R.menu.menu_vacation_details, menu);
@@ -313,7 +359,7 @@ public class VacationDetails extends AppCompatActivity {
             start_date = vacationStartText.getText().toString();
             end_date = vacationEndText.getText().toString();
 
-            if (dateCheck()) {
+            if (dateCheck() && dateValidationStart(start_date) && dateValidationEnd(end_date)) {
 
                 if (vacationId == -1) {
 
